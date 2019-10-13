@@ -1,0 +1,7 @@
+cancel 1
+quit
+*
+#
+Cannot cancel reservations, not logged in
+Goodbye
+*

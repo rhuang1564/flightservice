@@ -1,0 +1,45 @@
+# Tests 2 terminals trying to create an account with the same username
+# One should succeed, the other should fail
+#
+# Terminal 1
+create user1 pwd1 100
+create user2 pwd2 100
+quit
+*
+# expected result for Terminal 1
+# scenario 1: created user 1 and created user 2
+Created user user1
+Created user user2
+Goodbye
+|
+# scenario 2: created user1 but not user2
+Created user user1
+Failed to create user
+Goodbye
+|
+# scenario 3: could not create user1 or user2
+Failed to create user
+Failed to create user
+Goodbye
+*
+# Terminal 2
+create user2 pwd2 100
+create user1 pwd1 100
+quit
+*
+# expected result for Terminal 2
+# scenario 1: could not create user1 or user2
+Failed to create user
+Failed to create user
+Goodbye
+|
+# scenario 2: could create user2 but not user 1
+Created user user2
+Failed to create user
+Goodbye
+|
+# scenario 3: created user 1 and created user 2
+Created user user2
+Created user user1
+Goodbye
+*

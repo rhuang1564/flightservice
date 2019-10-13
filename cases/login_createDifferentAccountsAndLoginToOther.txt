@@ -1,0 +1,30 @@
+# creates each other's account but then login to the other one
+# user 1's commands
+create user1 user1 100
+login user2 user2
+quit
+*
+#
+# expected printouts for user 1
+#
+Created user user1
+Logged in as user2
+Goodbye
+|
+Created user user1
+Login failed
+Goodbye
+#
+*  # user 2's commands
+create user2 user2 100
+login user1 user1
+quit
+*  # user 2's expected printouts
+Created user user2
+Logged in as user1
+Goodbye
+|
+Created user user2
+Login failed
+Goodbye
+*

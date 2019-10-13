@@ -1,0 +1,33 @@
+# user 1 commands
+create user1 user1 978
+login user1 user1
+search "Seattle WA" "Boston MA" 1 1 1
+book 0
+search "Seattle WA" "Boston MA" 1 2 1
+book 0
+pay 2
+search "Seattle WA" "New York NY" 0 3 1
+book 0
+pay 3
+pay 1
+quit
+*
+#
+# expected printouts for user 1
+#
+Created user user1
+Logged in as user1
+Itinerary 0: 1 flight(s), 297 minutes
+ID: 60454 Day: 1 Carrier: AS Number: 24 Origin: Seattle WA Dest: Boston MA Duration: 297 Capacity: 14 Price: 140
+Booked flight(s), reservation ID: 1
+Itinerary 0: 1 flight(s), 299 minutes
+ID: 720462 Day: 2 Carrier: B6 Number: 498 Origin: Seattle WA Dest: Boston MA Duration: 299 Capacity: 18 Price: 838
+Booked flight(s), reservation ID: 2
+Paid reservation: 2 remaining balance: 140
+Itinerary 0: 1 flight(s), 293 minutes
+ID: 3270 Day: 3 Carrier: AA Number: 260 Origin: Seattle WA Dest: New York NY Duration: 293 Capacity: 10 Price: 763
+Booked flight(s), reservation ID: 3
+User has only 140 in account but itinerary costs 763
+Paid reservation: 1 remaining balance: 0
+Goodbye
+*
